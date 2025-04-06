@@ -17,7 +17,7 @@
         <!-- 上部分：大型新闻展示 -->
         <div class="featured-news">
           <div class="featured-news-image">
-            <img src="../assets/news1.jpg" alt="行业动态特色新闻" />
+            <!-- <img src="../assets/news1.jpg" alt="行业动态特色新闻" /> -->
           </div>
           <div class="featured-news-content">
             <h3 class="featured-news-title">2024年餐饮行业发展新趋势深度解析</h3>
@@ -53,7 +53,7 @@
         <div class="news-list">
           <div class="news-item" v-for="index in 2" :key="'company-'+index">
             <div class="news-image">
-              <img :src="`../assets/news${index+2}.jpg`" :alt="`公司新闻${index}`" />
+              <!-- <img :src="`../assets/news${index+2}.jpg`" :alt="`公司新闻${index}`" /> -->
             </div>
             <div class="news-content">
               <h3 class="news-title">餐饮品牌获得年度最佳服务奖</h3>
