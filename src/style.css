@@ -1,0 +1,115 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica,
+    Segoe UI, Arial, Roboto, 'PingFang SC', 'miui', 'Hiragino Sans GB', 'Microsoft Yahei',
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+
+  /* Vant主题色变量 */
+  --van-primary-color: #1989fa;
+  --van-success-color: #07c160;
+  --van-danger-color: #ee0a24;
+  --van-warning-color: #ff976a;
+  --van-text-color: #323233;
+  --van-text-color-2: #969799;
+  --van-text-color-3: #c8c9cc;
+  --van-active-color: #f2f3f5;
+  --van-active-opacity: 0.7;
+  --van-disabled-opacity: 0.5;
+  --van-background: #f7f8fa;
+  --van-padding-base: 4px;
+  --van-padding-xs: 8px;
+  --van-padding-sm: 12px;
+  --van-padding-md: 16px;
+  --van-padding-lg: 24px;
+  --van-padding-xl: 32px;
+
+  color-scheme: light dark;
+  color: var(--van-text-color);
+  background-color: var(--van-background);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* 移动端适配基础设置 */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+a {
+  font-weight: 500;
+  color: var(--van-primary-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--van-primary-color);
+  opacity: var(--van-active-opacity);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1.1;
+}
+
+button {
+  border-radius: var(--van-padding-xs);
+  border: 1px solid transparent;
+  padding: var(--van-padding-sm) var(--van-padding-md);
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--van-primary-color);
+  color: #fff;
+  cursor: pointer;
+  transition: opacity 0.25s;
+}
+button:hover {
+  opacity: var(--van-active-opacity);
+}
+button:focus,
+button:focus-visible {
+  outline: none;
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 移动端媒体查询 */
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 0.5em 1em;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--van-text-color);
+    background-color: var(--van-background);
+  }
+  a:hover {
+    color: var(--van-primary-color);
+    opacity: var(--van-active-opacity);
+  }
+}

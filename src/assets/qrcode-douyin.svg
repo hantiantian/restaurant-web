@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#fff"/>
+  <g transform="translate(40,40)">
+    <rect width="120" height="120" fill="#fe2c55"/>
+    <text x="60" y="70" font-size="16" text-anchor="middle" fill="white" font-family="Arial, sans-serif">抖音二维码</text>
+  </g>
+  <text x="100" y="180" font-size="14" text-anchor="middle" fill="#333" font-family="Arial, sans-serif">扫码关注抖音号</text>
+</svg>
