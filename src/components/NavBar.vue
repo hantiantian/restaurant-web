@@ -7,7 +7,7 @@
         <van-button icon="wechat" type="primary" size="small" class="wechat-login">微信登录</van-button>
       </div>
     </div>
-    <nav class="nav-bar">
+    <nav class="nav-bar" :class="{ 'fixed': isFixed }">
       <div class="logo">
         <img src="../assets/logo.svg" alt="Logo" />
         <span class="brand-name">餐饮品牌</span>
@@ -30,9 +30,27 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { Button as VanButton } from 'vant'
 const isMenuOpen = ref(false)
+const isFixed = ref(false)
+
+const handleScroll = () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+  const navBar = document.querySelector('.nav-bar')
+  if (navBar) {
+    const navBarTop = navBar.offsetTop
+    isFixed.value = scrollTop > navBarTop
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId)
@@ -85,7 +103,16 @@ const scrollToSection = (sectionId) => {
   position: relative;
   margin: 0 auto;
   padding: 50px 130px;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
 
+.nav-bar.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .logo {

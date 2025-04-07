@@ -17,14 +17,14 @@
         <!-- 上部分：大型新闻展示 -->
         <div class="featured-news">
           <div class="featured-news-image">
-            <!-- <img src="../assets/news1.jpg" alt="行业动态特色新闻" /> -->
+            <img :src="industryNews.featured.image" :alt="industryNews.featured.title" />
           </div>
           <div class="featured-news-content">
-            <h3 class="featured-news-title">2024年餐饮行业发展新趋势深度解析</h3>
-            <p class="featured-news-excerpt">随着消费升级和技术创新，餐饮行业正在经历深刻变革。</p>
+            <h3 class="featured-news-title">{{ industryNews.featured.title }}</h3>
+            <p class="featured-news-excerpt">{{ industryNews.featured.excerpt }}</p>
             <div class="featured-news-meta">
-              <span class="news-date">2024-01-15</span>
-              <a href="#" class="read-more">[查看详情]</a>
+              <span class="news-date">{{ industryNews.featured.date }}</span>
+              <a :href="industryNews.featured.link" class="read-more">[查看详情]</a>
             </div>
           </div>
         </div>
@@ -32,13 +32,13 @@
         <div class="news-list">
           <div class="news-columns">
             <div class="news-column-left">
-              <div class="news-item" v-for="index in 5" :key="'industry-list-left-'+index">
-                <h3 class="news-title">餐饮行业最新发展趋势分析 {{ index }}</h3>
+              <div class="news-item" v-for="news in industryNews.leftList" :key="'industry-list-left-'+news.id">
+                <span class="news-title" :title="news.title">{{ news.title }}</span>
               </div>
             </div>
             <div class="news-column-right">
-              <div class="news-item" v-for="index in 5" :key="'industry-list-right-'+index">
-                <h3 class="news-title">餐饮行业创新服务模式探索 {{ index }}</h3>
+              <div class="news-item" v-for="news in industryNews.rightList" :key="'industry-list-right-'+news.id">
+                <span class="news-title">{{ news.title }}</span>
               </div>
             </div>
           </div>
@@ -51,15 +51,14 @@
           <a href="#" class="more-link">MORE +</a>
         </div>
         <div class="news-list">
-          <div class="news-item" v-for="index in 2" :key="'company-'+index">
+          <div class="news-item" v-for="news in companyNews" :key="news.id">
             <div class="news-image">
-              <!-- <img :src="`../assets/news${index+2}.jpg`" :alt="`公司新闻${index}`" /> -->
+              <img :src="news.image" :alt="news.title" />
             </div>
             <div class="news-content">
-              <h3 class="news-title">餐饮品牌获得年度最佳服务奖</h3>
+              <span class="news-title">{{ news.title }}</span>
               <div class="news-meta">
-                <span class="news-date">2024-01-0{{ index+2 }}</span>
-                <a href="#" class="read-more">[查看详情]</a>
+                <span class="news-date">{{ news.content }} <a :href="news.link" class="read-more">[查看详情]</a></span>
               </div>
             </div>
           </div>
@@ -70,7 +69,8 @@
 </template>
 
 <script setup>
-// News component logic
+import { companyNews } from '../assets/data/companyNews.js';
+import { industryNews } from '../assets/data/industryNews.js';
 </script>
 
 <style scoped>
@@ -131,9 +131,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 0;
+  padding: 1rem 15px;
   position: relative;
-  padding-left: 1.2rem;
+  padding-left: 1.5rem;
   transition: transform 0.2s ease;
 }
 
@@ -325,27 +325,48 @@
 
 .news-column-left,
 .news-column-right {
+  width: 50%;
   flex: 1;
 }
 
 .news-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding: 0.8rem 0;
   position: relative;
   padding-left: 1rem;
 }
 
+.news-image {
+  width: 120px;
+  height: 90px;
+  overflow: hidden;
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+
+.news-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+  
+.news-content {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
 .news-item::before {
   content: '';
   position: absolute;
   left: 0;
-  width: 4px;
-  height: 4px;
-  background-color: #e74c3c;
+  width: 6px;
+  height: 6px;
+  background-color: var(--primary-color);
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) rotate(45deg);
 }
 
 .news-title {
@@ -357,15 +378,36 @@
   white-space: nowrap;
   padding-right: 1rem;
   flex: 1;
+  max-width: 100%;
+  display: inline-block;
 }
 
+@media (max-width: 768px) {
+  .news-title {
+    max-width: calc(100% - 20px);
+    font-size: 0.8rem;
+  }
+}
 .news-date {
   font-size: 0.75rem;
   color: #999;
-  white-space: nowrap;
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 70%;
 }
 
+.news-content { 
+  display: flex;          
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
 
+.news-meta {
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
 
 @media (max-width: 768px) {
   .news-columns {
@@ -374,7 +416,7 @@
   }
 
   .news-item {
-    padding: 0.6rem 0;
+    padding: 0.6rem 15px;
   }
 
   .news-title {
@@ -421,8 +463,17 @@
   }
 
   .news-image {
-    width: 100px;
-    height: 75px;
+    width: 120px;
+    height: 90px;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 1rem;
+  }
+  
+  .news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 </style>

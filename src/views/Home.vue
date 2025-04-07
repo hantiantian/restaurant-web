@@ -4,9 +4,6 @@
     <div id="dishes">
       <DishGrid />
     </div>
-    <div id="massage">
-      <Massage />
-    </div>
     <div id="franchisee">
       <FranchiseeStyle/>
     </div>
@@ -16,6 +13,7 @@
     <div id="news">
       <News />
     </div>
+    <BackToTop />
   </div>
 </template>
 
@@ -25,6 +23,7 @@ import DishGrid from '../components/DishGrid.vue'
 import FranchiseeStyle from '../components/FranchiseeStyle.vue'
 import JoinInvestment from '../components/JoinInvestment.vue'
 import News from '../components/News.vue'
+import BackToTop from '../components/BackToTop.vue'
 </script>
 
 <style scoped>

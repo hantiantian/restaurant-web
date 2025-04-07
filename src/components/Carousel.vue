@@ -23,21 +23,9 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import banner_1 from '../assets/carousel/banner_1.jpg'
-import banner_2 from '../assets/carousel/banner_2.jpg'
+import { carouselData } from '../assets/data/carouselData.js'
 
-const slides = [
-  {
-    image: banner_1,
-    title: '品味生活',
-    subtitle: '传统美食 创新演绎'
-  },
-  {
-    image: banner_2,
-    title: '匠心品质',
-    subtitle: '用心制作每一道菜'
-  }
-]
+const slides = carouselData
 
 const currentIndex = ref(0)
 const autoPlayInterval = ref(null)

@@ -2,38 +2,34 @@
   <footer class="footer">
     <div class="footer-content">
       <div class="footer-section">
-        <h3>联系我们</h3>
-        <p>地址：北京市朝阳区xxx大厦</p>
-        <p>电话：010-12345678</p>
-        <p>邮箱：contact@restaurant.com</p>
+        <h3>{{ footerData.contact.title }}</h3>
+        <p>地址：{{ footerData.contact.address }}</p>
+        <p>电话：{{ footerData.contact.phone }}</p>
+        <p>邮箱：{{ footerData.contact.email }}</p>
       </div>
       <div class="footer-section">
-        <h3>营业时间</h3>
-        <p>周一至周五：10:00 - 22:00</p>
-        <p>周六至周日：09:00 - 23:00</p>
+        <h3>{{ footerData.businessHours.title }}</h3>
+        <p>{{ footerData.businessHours.weekday }}</p>
+        <p>{{ footerData.businessHours.weekend }}</p>
       </div>
       <div class="footer-section qrcode">
-        <h3>关注我们</h3>
+        <h3>{{ footerData.followUs.title }}</h3>
         <div class="qrcode-container">
-          <div class="qrcode-item">
-            <img src="../assets/images/footer/qrcode_for_gh_1a040799b2b5_430.jpg" alt="微信二维码" />
-            <p>微信公众号</p>
-          </div>
-          <div class="qrcode-item">
-            <img src="../assets/images/footer/WechatIMG30_03.jpg" alt="抖音二维码" />
-            <p>抖音号</p>
+          <div v-for="(qrcode, index) in footerData.followUs.qrcodes" :key="index" class="qrcode-item">
+            <img :src="qrcode.image" :alt="qrcode.alt" />
+            <p>{{ qrcode.text }}</p>
           </div>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2024 餐饮品牌 版权所有</p>
+      <p>{{ footerData.copyright }}</p>
     </div>
   </footer>
 </template>
 
 <script setup>
-// Footer component logic
+import { footerData } from '../assets/data/footerData.js'
 </script>
 
 <style scoped>
