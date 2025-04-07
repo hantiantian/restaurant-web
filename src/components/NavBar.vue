@@ -18,11 +18,13 @@
       <span class="bar"></span>
     </button>
     <div class="nav-links" :class="{ 'active': isMenuOpen }">
-      <a href="#" class="nav-link">首页</a>
-      <a href="#" class="nav-link">菜品</a>
-      <a href="#" class="nav-link">新闻</a>
-      <a href="#" class="nav-link">关于我们</a>
-      <a href="#" class="nav-link">联系我们</a>
+      <a href="#home" class="nav-link" @click="scrollToSection('home')">首页</a>
+      <a href="#dishes" class="nav-link" @click="scrollToSection('dishes')">特色菜品</a>
+      <a href="#massage" class="nav-link" @click="scrollToSection('massage')">按摩服务</a>
+      <a href="#franchisee" class="nav-link" @click="scrollToSection('franchisee')">加盟商风采</a>
+      <a href="#join" class="nav-link" @click="scrollToSection('join')">招商加盟</a>
+      <a href="#news" class="nav-link" @click="scrollToSection('news')">新闻资讯</a>
+      <a href="#footer" class="nav-link" @click="scrollToSection('footer')">联系我们</a>
     </div>
     </nav>
   </div>
@@ -32,6 +34,14 @@
 import { ref } from 'vue'
 import { Button as VanButton } from 'vant'
 const isMenuOpen = ref(false)
+
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth' })
+    isMenuOpen.value = false
+  }
+}
 </script>
 
 <style scoped>

@@ -16,11 +16,11 @@
         <h3>关注我们</h3>
         <div class="qrcode-container">
           <div class="qrcode-item">
-            <img src="../assets/qrcode-weixin.svg" alt="微信二维码" />
+            <img src="../assets/images/footer/qrcode_for_gh_1a040799b2b5_430.jpg" alt="微信二维码" />
             <p>微信公众号</p>
           </div>
           <div class="qrcode-item">
-            <img src="../assets/qrcode-douyin.svg" alt="抖音二维码" />
+            <img src="../assets/images/footer/WechatIMG30_03.jpg" alt="抖音二维码" />
             <p>抖音号</p>
           </div>
         </div>
