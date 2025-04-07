@@ -20,7 +20,6 @@
     <div class="nav-links" :class="{ 'active': isMenuOpen }">
       <a href="#home" class="nav-link" @click="scrollToSection('home')">首页</a>
       <a href="#dishes" class="nav-link" @click="scrollToSection('dishes')">特色菜品</a>
-      <a href="#massage" class="nav-link" @click="scrollToSection('massage')">按摩服务</a>
       <a href="#franchisee" class="nav-link" @click="scrollToSection('franchisee')">加盟商风采</a>
       <a href="#join" class="nav-link" @click="scrollToSection('join')">招商加盟</a>
       <a href="#news" class="nav-link" @click="scrollToSection('news')">新闻资讯</a>
