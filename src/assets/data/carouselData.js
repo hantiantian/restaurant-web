@@ -1,5 +1,5 @@
-import banner_1 from './src/assets/carousel/banner_1.jpg'
-import banner_2 from './src/assets/carousel/banner_2.jpg'
+import banner_1 from '@/assets/carousel/banner_1.jpg'
+import banner_2 from '@/assets/carousel/banner_2.jpg'
 export const carouselData = [
   {
     image:banner_1,

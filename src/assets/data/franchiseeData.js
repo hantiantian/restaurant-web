@@ -1,7 +1,7 @@
-import franchisee1 from '../join/join_08.jpg'
-import franchisee2 from '../join/join_09.jpg'
-import franchisee3 from '../join/join_10.jpg'
-import franchisee4 from '../join/join_11.jpg'
+import franchisee1 from '@/assets/join/join_08.jpg'
+import franchisee2 from '@/assets/join/join_09.jpg'
+import franchisee3 from '@/assets/join/join_10.jpg'
+import franchisee4 from '@/assets/join/join_11.jpg'
 
 export const franchisees = [
   {

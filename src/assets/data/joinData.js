@@ -1,10 +1,9 @@
 // 加盟相关数据配置
-import store1 from '../store/banner_1.jpg'
-import store2 from '../store/banner_1.jpg'
-import store3 from '../store/banner_1.jpg'
+import store1 from '@/assets/store/banner_1.jpg'
+
 
 // 店面展示图片
-export const storeImages = [store1, store2, store3]
+export const storeImages = [store1, store1, store1]
 
 // 加盟优势
 export const advantages = [
