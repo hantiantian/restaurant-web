@@ -22,7 +22,6 @@
 <script setup>
 import Carousel from '../components/Carousel.vue'
 import DishGrid from '../components/DishGrid.vue'
-import Massage from '../components/Massage.vue'
 import FranchiseeStyle from '../components/FranchiseeStyle.vue'
 import JoinInvestment from '../components/JoinInvestment.vue'
 import News from '../components/News.vue'
